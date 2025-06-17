@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { color } from "../../typhograpy";
 import { NormalButton } from "../Elements/Button";
-import FormPembayaran from "../Fragments/FormPembayaran";
+import FormPembayaran from "../Fragments/Form";
 
 export const Form = () => {
   return (

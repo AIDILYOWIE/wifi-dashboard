@@ -78,7 +78,7 @@ export const ButtonnSidebar = ({
 };
 
 export const ButtonV2 = () => {
-  const image = '../../../public/icon/add.svg'
+  const image = "../../../public/icon/add.svg";
   return (
     <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
       <Box
@@ -94,7 +94,9 @@ export const ButtonV2 = () => {
           maskSize: "cover",
         }}
       />
-      <p className="text-[16px] text-background font-semibold">Tambah Pelanggan</p>
+      <p className="text-[16px] text-background font-semibold">
+        Tambah Pelanggan
+      </p>
     </button>
   );
 };
@@ -109,6 +111,42 @@ export const NormalButton = ({ text }) => {
              hover:bg-transparent hover:text-text transition-colors duration-300`}
     >
       {text}
+    </button>
+  );
+};
+
+export const ButtonAction = ({ type }) => {
+  const imageEdit = "../../../public/icon/edit.svg";
+  const imageDelete = "../../../public/icon/delete.svg";
+  let image;
+  let colorText;
+  let background;
+
+  if (type == "edit") {
+    image = imageEdit;
+    colorText = color.editColor;
+    background = "bg-edit-background";
+  } else {
+    image = imageDelete;
+    colorText = color.deleteColor;
+    background = "bg-delete-background";
+  }
+
+  return (
+    <button className={`w-max h-max p-[10px] rounded-[10px] flex justify-center items-center ${background} cursor-pointer `}>
+      <Box
+        sx={{
+          width: 18,
+          height: 18,
+          backgroundColor: colorText,
+          WebkitMaskImage: `url(${image})`,
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage: `url(${image})`,
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
     </button>
   );
 };

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React, { useState, useRef, useEffect } from "react";
 import { color } from "../../typhograpy";
-import { customerData } from "../../data";
+import { dataPelanggan } from "../../data";
 
 export const DateInput = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -225,7 +225,7 @@ export const DistrictInput = () => {
   const subDistrictDropdownRef = useRef(null);
 
   const subDistricts = [
-    ...new Set(customerData.map((customer) => customer.subDistrict)),
+    ...new Set(dataPelanggan.map((customer) => customer.dusunJalan)),
   ];
 
   const handleSubDistrictSelect = (subDistrict) => {
@@ -307,12 +307,12 @@ export const DistrictInput = () => {
 
 //   // Get unique sub-districts
 //   const subDistricts = [
-//     ...new Set(customerData.map((customer) => customer.subDistrict)),
+//     ...new Set(dataPelanggan.map((customer) => customer.subDistrict)),
 //   ];
 
 //   // Get filtered customers based on selected sub-district
 //   const filteredCustomers = selectedSubDistrict
-//     ? customerData.filter(
+//     ? dataPelanggan.filter(
 //         (customer) => customer.subDistrict === selectedSubDistrict
 //       )
 //     : customerData;
