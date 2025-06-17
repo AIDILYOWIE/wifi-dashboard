@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { color, fontSize } from "../../typhograpy";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ export const ButtonnSidebar = ({
   text,
   href = "/",
   background = "transparent",
+  isActive = false,
 }) => {
   const renderIcon = useMemo(() => {
     return icon;
@@ -23,7 +24,7 @@ export const ButtonnSidebar = ({
           gap: "10px",
           alignItems: "center",
           cursor: "pointer",
-          background,
+          background: isActive ? color.primaryColor : background,
           justifyContent: "start",
           transition: "background-color 0.3s ease",
 
@@ -48,7 +49,9 @@ export const ButtonnSidebar = ({
             sx={{
               width: 24,
               height: 24,
-              backgroundColor: color.textColor,
+              backgroundColor: isActive
+                ? color.backgroundColor
+                : color.textColor,
               WebkitMaskImage: `url(${renderIcon})`,
               WebkitMaskRepeat: "no-repeat",
               WebkitMaskSize: "cover",
@@ -64,7 +67,7 @@ export const ButtonnSidebar = ({
             variant="h5"
             fontSize={`${fontSize.sidebarMenu}px`}
             fontWeight="regular"
-            color={color.textColor}
+            color={isActive ? color.backgroundColor : color.textColor}
           >
             {text}
           </Typography>
@@ -74,13 +77,38 @@ export const ButtonnSidebar = ({
   );
 };
 
-export const NormalButton = ({text}) => { 
+export const ButtonV2 = () => {
+  const image = '../../../public/icon/add.svg'
   return (
-    <button style={{
-      backgroundColor: color.primaryColor,
-      color: color.backgroundColor
-    }} className={`w-full p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer`}>
+    <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
+      <Box
+        sx={{
+          width: 21,
+          height: 21,
+          backgroundColor: color.backgroundColor,
+          WebkitMaskImage: `url(${image})`,
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage: `url(${image})`,
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+      <p className="text-[16px] text-background font-semibold">Tambah Pelanggan</p>
+    </button>
+  );
+};
+
+export const NormalButton = ({ text }) => {
+  const [isHover, setIsHover] = useState(false);
+
+  return (
+    <button
+      className={`w-full p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer
+             bg-primary text-background
+             hover:bg-transparent hover:text-text transition-colors duration-300`}
+    >
       {text}
     </button>
-  )
-}
+  );
+};
