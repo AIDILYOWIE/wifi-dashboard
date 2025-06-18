@@ -8,6 +8,7 @@ import Pembayaran from "./Pages/Pembayaran";
 import Pelanggan from "./Pages/Pelanggan";
 import Transaksi from "./Pages/Transaksi";
 import AddPelanggan from "./Pages/AddPelanggan";
+import EditPelanggan from "./Pages/EditPelanggan";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/pelanggan/add',
         element: <AddPelanggan/>
+      },
+      {
+        path: '/pelanggan/:id',
+        element: <EditPelanggan/>
       },
       {
         path: '/transaksi',

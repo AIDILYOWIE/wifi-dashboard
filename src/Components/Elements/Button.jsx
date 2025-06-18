@@ -1,83 +1,87 @@
 import { Box, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { color, fontSize } from "../../typhograpy";
-import { Link } from "react-router-dom";
+import { data, Link, useParams } from "react-router-dom";
+import { dataPelanggan } from "../../data";
+import React from "react";
 
-export const ButtonnSidebar = ({
-  icon,
-  text,
-  href = "/",
-  background = "transparent",
-  isActive = false,
-}) => {
-  const renderIcon = useMemo(() => {
-    return icon;
-  }, [icon]);
+export const ButtonnSidebar = React.memo(
+  ({
+    icon,
+    text,
+    href = "/",
+    background = "transparent",
+    isActive = false,
+  }) => {
+    const renderIcon = useMemo(() => {
+      return icon;
+    }, [icon]);
 
-  return (
-    <Link to={href}>
-      <Box
-        sx={{
-          padding: "10px 20px",
-          display: "flex",
-          borderRadius: "10px",
-          gap: "10px",
-          alignItems: "center",
-          cursor: "pointer",
-          background: isActive ? color.primaryColor : background,
-          justifyContent: "start",
-          transition: "background-color 0.3s ease",
+    return (
+      <Link to={href}>
+        <Box
+          sx={{
+            padding: "10px 20px",
+            display: "flex",
+            borderRadius: "10px",
+            gap: "10px",
+            alignItems: "center",
+            cursor: "pointer",
+            background: isActive ? color.primaryColor : background,
+            justifyContent: "start",
+            transition: "background-color 0.3s ease",
 
-          "&:hover": {
-            backgroundColor: color.primaryColor,
+            "&:hover": {
+              backgroundColor: color.primaryColor,
 
-            ".sidebar-icon": {
-              backgroundColor: color.backgroundColor,
-              transition: "background-color .3s ease",
+              ".sidebar-icon": {
+                backgroundColor: color.backgroundColor,
+                transition: "background-color .3s ease",
+              },
+
+              ".sidebar-text": {
+                color: color.backgroundColor,
+                transition: "background-color .3s ease",
+              },
             },
-
-            ".sidebar-text": {
-              color: color.backgroundColor,
-              transition: "background-color .3s ease",
-            },
-          },
-        }}
-      >
-        <Box sx={{ width: "max-content" }}>
-          <Box
-            className="sidebar-icon"
-            sx={{
-              width: 24,
-              height: 24,
-              backgroundColor: isActive
-                ? color.backgroundColor
-                : color.textColor,
-              WebkitMaskImage: `url(${renderIcon})`,
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskSize: "cover",
-              maskImage: `url(${renderIcon})`,
-              maskRepeat: "no-repeat",
-              maskSize: "cover",
-            }}
-          />
+          }}
+        >
+          <Box sx={{ width: "max-content" }}>
+            <Box
+              className="sidebar-icon"
+              sx={{
+                width: 24,
+                height: 24,
+                backgroundColor: isActive
+                  ? color.backgroundColor
+                  : color.textColor,
+                WebkitMaskImage: `url(${renderIcon})`,
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "cover",
+                maskImage: `url(${renderIcon})`,
+                maskRepeat: "no-repeat",
+                maskSize: "cover",
+              }}
+            />
+          </Box>
+          <Box sx={{ fontSize: "16px", fontWeight: "regular" }}>
+            <Typography
+              className="sidebar-text"
+              variant="h5"
+              fontSize={`${fontSize.sidebarMenu}px`}
+              fontWeight="regular"
+              color={isActive ? color.backgroundColor : color.textColor}
+            >
+              {text}
+            </Typography>
+          </Box>
         </Box>
-        <Box sx={{ fontSize: "16px", fontWeight: "regular" }}>
-          <Typography
-            className="sidebar-text"
-            variant="h5"
-            fontSize={`${fontSize.sidebarMenu}px`}
-            fontWeight="regular"
-            color={isActive ? color.backgroundColor : color.textColor}
-          >
-            {text}
-          </Typography>
-        </Box>
-      </Box>
-    </Link>
-  );
-};
+      </Link>
+    );
+  }
+);
 
-export const ButtonV2 = ({to = '/'}) => {
+export const ButtonV2 = React.memo(({ to = "/" }) => {
   const image = "../../../public/icon/add.svg";
   return (
     <Link to={to}>
@@ -101,9 +105,9 @@ export const ButtonV2 = ({to = '/'}) => {
       </button>
     </Link>
   );
-};
+});
 
-export const NormalButton = ({ text }) => {
+export const NormalButton = React.memo(({ text }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -115,9 +119,9 @@ export const NormalButton = ({ text }) => {
       {text}
     </button>
   );
-};
+});
 
-export const ButtonAction = ({ type }) => {
+export const ButtonAction = React.memo(({ type, to, onClick }) => {
   const imageEdit = "../../../public/icon/edit.svg";
   const imageDelete = "../../../public/icon/delete.svg";
   let image;
@@ -134,8 +138,29 @@ export const ButtonAction = ({ type }) => {
     background = "bg-delete-background";
   }
 
-  return (
+  return type == "edit" ? (
+    <Link to={to}>
+      <button
+        className={`w-max h-max p-[10px] rounded-[10px] flex justify-center items-center ${background} cursor-pointer `}
+      >
+        <Box
+          sx={{
+            width: 18,
+            height: 18,
+            backgroundColor: colorText,
+            WebkitMaskImage: `url(${image})`,
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "cover",
+            maskImage: `url(${image})`,
+            maskRepeat: "no-repeat",
+            maskSize: "cover",
+          }}
+        />
+      </button>
+    </Link>
+  ) : (
     <button
+      onClick={onClick}
       className={`w-max h-max p-[10px] rounded-[10px] flex justify-center items-center ${background} cursor-pointer `}
     >
       <Box
@@ -153,4 +178,5 @@ export const ButtonAction = ({ type }) => {
       />
     </button>
   );
-};
+});
+

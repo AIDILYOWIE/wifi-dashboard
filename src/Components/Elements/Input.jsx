@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { color } from "../../typhograpy";
 import { dataPelanggan } from "../../data";
 
-export const DateInput = ({label = 'Tanggal'}) => {
+export const DateInput = React.memo( ({label = 'Tanggal'}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -216,7 +216,7 @@ export const DateInput = ({label = 'Tanggal'}) => {
       </div>
     </div>
   );
-};
+})
 
 export const DistrictInput = () => {
   const [selectedSubDistrict, setSelectedSubDistrict] = useState("");
@@ -291,15 +291,15 @@ export const DistrictInput = () => {
   );
 };
 
-export const NormalInput = ({label, placeholder}) => {
+export const NormalInput = React.memo(({label, placeholder, value, onChange}) => {
   return (
     <div className="w-full flex flex-col gap-[10px]">
       <label htmlFor="" className="text-text text-[16px]">{label}</label>
-      <input type="text" placeholder={placeholder} className="w-full focus:outline-none focus:text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] text-other rounded-[10px]
+      <input onChange={onChange} type="text" value={value ?? ""} placeholder={placeholder} className="w-full focus:outline-none text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] rounded-[10px]
       "/>
     </div>
   )
-}
+})
 
 // export const OrderForm = () => {
 //   // Form state
