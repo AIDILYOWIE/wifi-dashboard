@@ -10,7 +10,7 @@ const Pelanggan = () => {
           <MySearch />
         </div>
         <div className="w-full flex justify-end">
-            <ButtonV2/>
+            <ButtonV2 to={'/pelanggan/add'}/>
         </div>
       </div>
       <div className="w-full">

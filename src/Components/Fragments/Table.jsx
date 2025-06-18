@@ -38,7 +38,7 @@ export const TablePelanggan = () => {
         <TableHead value="Desa" />
         {dataPelanggan &&
           dataPelanggan.map((item, i) => (
-            <TableBody key={i} value={item.Desa} />
+            <TableBody key={i} value={item.desa} />
           ))}
       </div>
 

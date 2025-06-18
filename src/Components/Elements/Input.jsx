@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { color } from "../../typhograpy";
 import { dataPelanggan } from "../../data";
 
-export const DateInput = () => {
+export const DateInput = ({label = 'Tanggal'}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -91,10 +91,10 @@ export const DateInput = () => {
           onClick={() => handleDateSelect(date)}
           className={`w-10 h-10 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-blue-100 ${
             isSelected
-              ? "bg-blue-500 text-white hover:bg-blue-600"
+              ? "bg-primary text-white hover:bg-blue-600"
               : isToday
-              ? "bg-blue-50 text-blue-600"
-              : "text-gray-700 hover:text-blue-600"
+              ? "bg-blue-50 text-primary"
+              : "text-text hover:text-primary"
           }`}
         >
           {day}
@@ -134,7 +134,7 @@ export const DateInput = () => {
           <label
             className={`text-text transition-all duration-200 pointer-events-none top-3 text-[16px] font-normal`}
           >
-            Tanggal
+            {label}
           </label>
           <input
             ref={inputRef}
@@ -142,7 +142,7 @@ export const DateInput = () => {
             value={formatDate(selectedDate)}
             onClick={handleInputClick}
             readOnly
-            className={`w-full border-2 px-2 py-1 text-[10px] rounded-lg focus:outline-none transition-all duration-200 cursor-pointer hover:border-gray-300 bg-white`}
+            className={`w-full border-2 px-[20px] py-[10px] text-[10px] rounded-[10px] focus:outline-none transition-all duration-200 cursor-pointer hover:border-gray-300 bg-white`}
             placeholder="Masukan Tanggal"
           />
         </div>
@@ -246,7 +246,7 @@ export const DistrictInput = () => {
             onClick={() =>
               setIsSubDistrictDropdownOpen(!isSubDistrictDropdownOpen)
             }
-            className="w-full px-2 py-1 border-2 rounded-lg focus:outline-none transition-all duration-200 cursor-pointer hover:border-gray-300 bg-white text-left flex items-center justify-between"
+            className="w-full px-[20px] py-[10px] border-2 rounded-[10px] focus:outline-none transition-all duration-200 cursor-pointer hover:border-gray-300 bg-white text-left flex items-center justify-between"
           >
             <span
               className={`${
@@ -290,6 +290,16 @@ export const DistrictInput = () => {
     </div>
   );
 };
+
+export const NormalInput = ({label, placeholder}) => {
+  return (
+    <div className="w-full flex flex-col gap-[10px]">
+      <label htmlFor="" className="text-text text-[16px]">{label}</label>
+      <input type="text" placeholder={placeholder} className="w-full focus:outline-none focus:text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] text-other rounded-[10px]
+      "/>
+    </div>
+  )
+}
 
 // export const OrderForm = () => {
 //   // Form state

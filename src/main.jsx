@@ -7,6 +7,7 @@ import MainLayout from "./Components/Layouts/MainLayout";
 import Pembayaran from "./Pages/Pembayaran";
 import Pelanggan from "./Pages/Pelanggan";
 import Transaksi from "./Pages/Transaksi";
+import AddPelanggan from "./Pages/AddPelanggan";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/pelanggan',
         element: <Pelanggan/>
+      },
+      {
+        path: '/pelanggan/add',
+        element: <AddPelanggan/>
       },
       {
         path: '/transaksi',

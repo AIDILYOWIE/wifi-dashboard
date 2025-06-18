@@ -77,27 +77,29 @@ export const ButtonnSidebar = ({
   );
 };
 
-export const ButtonV2 = () => {
+export const ButtonV2 = ({to = '/'}) => {
   const image = "../../../public/icon/add.svg";
   return (
-    <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
-      <Box
-        sx={{
-          width: 21,
-          height: 21,
-          backgroundColor: color.backgroundColor,
-          WebkitMaskImage: `url(${image})`,
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "cover",
-          maskImage: `url(${image})`,
-          maskRepeat: "no-repeat",
-          maskSize: "cover",
-        }}
-      />
-      <p className="text-[16px] text-background font-semibold">
-        Tambah Pelanggan
-      </p>
-    </button>
+    <Link to={to}>
+      <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
+        <Box
+          sx={{
+            width: 21,
+            height: 21,
+            backgroundColor: color.backgroundColor,
+            WebkitMaskImage: `url(${image})`,
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "cover",
+            maskImage: `url(${image})`,
+            maskRepeat: "no-repeat",
+            maskSize: "cover",
+          }}
+        />
+        <p className="text-[16px] text-background font-semibold">
+          Tambah Pelanggan
+        </p>
+      </button>
+    </Link>
   );
 };
 
@@ -133,7 +135,9 @@ export const ButtonAction = ({ type }) => {
   }
 
   return (
-    <button className={`w-max h-max p-[10px] rounded-[10px] flex justify-center items-center ${background} cursor-pointer `}>
+    <button
+      className={`w-max h-max p-[10px] rounded-[10px] flex justify-center items-center ${background} cursor-pointer `}
+    >
       <Box
         sx={{
           width: 18,
