@@ -7,6 +7,9 @@ import MainLayout from "./Components/Layouts/MainLayout";
 import Pembayaran from "./Pages/Pembayaran";
 import Pelanggan from "./Pages/Pelanggan";
 import Transaksi from "./Pages/Transaksi";
+import AddPelanggan from "./Pages/AddPelanggan";
+import EditPelanggan from "./Pages/EditPelanggan";
+import Invoice from "./Components/Fragments/invoice";
 
 const router = createBrowserRouter([
   {
@@ -18,9 +21,16 @@ const router = createBrowserRouter([
         element: <Pembayaran />,
       },
       {
+        path: '/invoice',
+        element: <Invoice/>
+      },
+      {
         path: '/pelanggan',
         element: <Pelanggan/>
       },
+      {
+        path: '/pelanggan/add',
+        element: <AddPelanggan/>
       {
         path: '/transaksi',
         element: <Transaksi/>

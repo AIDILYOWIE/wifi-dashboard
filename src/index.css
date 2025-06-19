@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+@theme {
+  --color-primary: #19297C;
+  --color-other: #979797;
+  --color-border: rgba(202, 202, 202, 50%);
+  --color-text: #333333;
+  --color-background: #F8F8F8;
+  --color-other-text: #979797;
+  --color-edit: #FFDC00;
+  --color-edit-background: rgba(251, 217, 0, 20%);
+  --color-delete: #FF0004;
+  --color-delete-background: rgba(255, 0, 4, 20%);
+  --color-success: #00FF19;
+  --color-success-background: rgba(0, 255, 15, 18%);
+}
+
 
 :root {
   font-family: "Poppins", sans-serif;
@@ -15,6 +30,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
+
+
 
 * {
   margin: 0;

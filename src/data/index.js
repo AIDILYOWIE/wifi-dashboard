@@ -1,0 +1,22 @@
+export const dataPelanggan = [
+  { index: 1, namaPelanggan: "Andi Setiawan", kecamatan: "Jenangan", desa: "Karadenan", dusunJalan: "Jalan Kenanga No. 12", status: "LUNAS", tanggal: "April 5, 2025" },
+  { index: 2, namaPelanggan: "Siti Aminah", kecamatan: "Jenangan", desa: "Tajur", dusunJalan: "Gang Melati RT 03", status: "BELUM LUNAS", tanggal: "June 12, 2025" },
+  { index: 3, namaPelanggan: "Budi Hartono", kecamatan: "Jenangan", desa: "Tlajung Udik", dusunJalan: "Jl. Raya Bogor KM 28", status: "LUNAS", tanggal: "January 22, 2025" },
+  { index: 4, namaPelanggan: "Rina Marlina", kecamatan: "Jenangan", desa: "Cipeucang", dusunJalan: "Jl. Mawar No. 7", status: "BELUM LUNAS", tanggal: "August 14, 2025" },
+  { index: 5, namaPelanggan: "Dedi Santoso", kecamatan: "Jenangan", desa: "Pasir Jambu", dusunJalan: "Jl. Raya Sukaraja", status: "LUNAS", tanggal: "October 30, 2025" },
+  { index: 6, namaPelanggan: "Yuni Astuti", kecamatan: "Jenangan", desa: "Tegal", dusunJalan: "Jl. Tegal Muda", status: "BELUM LUNAS", tanggal: "February 18, 2025" },
+  { index: 7, namaPelanggan: "Rafi Hidayat", kecamatan: "Jenangan", desa: "Warung Jambu", dusunJalan: "Jalan Melati No. 4", status: "LUNAS", tanggal: "July 7, 2025" },
+  { index: 8, namaPelanggan: "Dewi Lestari", kecamatan: "Jenangan", desa: "Cigudeg", dusunJalan: "Jl. Raya Leuwiliang", status: "BELUM LUNAS", tanggal: "November 3, 2025" },
+  { index: 9, namaPelanggan: "Fajar Nugroho", kecamatan: "Jenangan", desa: "Dramaga", dusunJalan: "Jl. Kampus IPB", status: "LUNAS", tanggal: "March 9, 2025" },
+  { index: 10, namaPelanggan: "Indah Pratiwi", kecamatan: "Jenangan", desa: "Sirnagalih", dusunJalan: "Jl. Alternatif Puncak", status: "BELUM LUNAS", tanggal: "December 21, 2025" },
+  { index: 11, namaPelanggan: "Wawan Saputra", kecamatan: "Jenangan", desa: "Cilebut", dusunJalan: "Jl. Cilebut Barat", status: "LUNAS", tanggal: "May 1, 2025" },
+  { index: 12, namaPelanggan: "Nia Ramadhani", kecamatan: "Jenangan", desa: "Susukan", dusunJalan: "Jl. Raya Susukan", status: "BELUM LUNAS", tanggal: "September 15, 2025" },
+  { index: 13, namaPelanggan: "Eko Yulianto", kecamatan: "Jenangan", desa: "Palasari", dusunJalan: "Jl. Gunung Salak", status: "LUNAS", tanggal: "February 7, 2025" },
+  { index: 14, namaPelanggan: "Mega Putri", kecamatan: "Jenangan", desa: "Srogol", dusunJalan: "Jl. Raya Cicurug", status: "BELUM LUNAS", tanggal: "June 28, 2025" },
+  { index: 15, namaPelanggan: "Dina Yuliani", kecamatan: "Jenangan", desa: "Pasir Muncang", dusunJalan: "Jl. Raya Caringin", status: "LUNAS", tanggal: "January 17, 2025" },
+  { index: 16, namaPelanggan: "Agus Wibowo", kecamatan: "Jenangan", desa: "Sukagalih", dusunJalan: "Jl. Raya Jonggol", status: "BELUM LUNAS", tanggal: "March 25, 2025" },
+  { index: 17, namaPelanggan: "Maya Sari", kecamatan: "Jenangan", desa: "Cilember", dusunJalan: "Jl. Hankam Cilember", status: "LUNAS", tanggal: "August 6, 2025" },
+  { index: 18, namaPelanggan: "Bayu Pratama", kecamatan: "Jenangan", desa: "Kuta", dusunJalan: "Jl. Puncak Pass", status: "BELUM LUNAS", tanggal: "July 19, 2025" },
+  { index: 19, namaPelanggan: "Yuliana Fitri", kecamatan: "Jenangan", desa: "Sentul", dusunJalan: "Jl. Sentul Raya", status: "LUNAS", tanggal: "May 22, 2025" },
+  { index: 20, namaPelanggan: "Hendra Kusuma", kecamatan: "Jenangan", desa: "Neglasari", dusunJalan: "Jl. Neglasari Indah", status: "BELUM LUNAS", tanggal: "October 11, 2025" }
+];
