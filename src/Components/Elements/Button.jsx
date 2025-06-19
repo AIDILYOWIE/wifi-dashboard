@@ -81,9 +81,8 @@ export const ButtonnSidebar = React.memo(
   }
 );
 
-export const ButtonV2 = React.memo(({ to = "/" }) => {
-  const image = "../../../public/icon/add.svg";
-  return (
+export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
+  return type == "addPelanggan" ? (
     <Link to={to}>
       <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
         <Box
@@ -91,19 +90,34 @@ export const ButtonV2 = React.memo(({ to = "/" }) => {
             width: 21,
             height: 21,
             backgroundColor: color.backgroundColor,
-            WebkitMaskImage: `url(${image})`,
+            WebkitMaskImage: `url(${icon})`,
             WebkitMaskRepeat: "no-repeat",
             WebkitMaskSize: "cover",
-            maskImage: `url(${image})`,
+            maskImage: `url(${icon})`,
             maskRepeat: "no-repeat",
             maskSize: "cover",
           }}
         />
-        <p className="text-[16px] text-background font-semibold">
-          Tambah Pelanggan
-        </p>
+        <p className="text-[16px] text-background font-semibold">{text}</p>
       </button>
     </Link>
+  ) : (
+    <button className="w-max flex flex-row-reverse items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
+      <Box
+        sx={{
+          width: 24,
+          height: 24,
+          backgroundColor: color.backgroundColor,
+          WebkitMaskImage: `url(${icon})`,
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage: `url(${icon})`,
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+      <p className="text-[14px] text-background font-semibold">{text}</p>
+    </button>
   );
 });
 
@@ -114,7 +128,7 @@ export const NormalButton = React.memo(({ text }) => {
     <button
       className={`w-full p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer
              bg-primary text-background
-             hover:bg-transparent hover:text-text transition-colors duration-300`}
+             hover:bg-transparent hover:text-text transition-colors duration-300 tracking-[.5px]`}
     >
       {text}
     </button>
@@ -180,3 +194,31 @@ export const ButtonAction = React.memo(({ type, to, onClick }) => {
   );
 });
 
+export const ButtonActionDelete = ({ type, onClick }) => {
+  return (
+    <button
+      onClick={() => onClick()}
+      className={`w-full rounded-[50px] font-light ${
+        type == "Cancel"
+          ? "border-1 border-border text-other bg-white"
+          : "bg-delete-background text-delete"
+      } px-[10px] py-[8px] cursor-pointer`}
+    >
+      {type}
+    </button>
+  );
+};
+
+export const ButtonStatus = ({type}) => {
+  return (
+        <button
+      className={`w-full flex justify-center items-center h-full rounded-[50px] text-[16px] font-light ${
+        type == "LUNAS"
+          ? "text-success bg-success-background"
+          : "bg-delete-background text-delete"
+      } px-[20px] py-[10px] cursor-pointer`}
+    >
+      {type}
+    </button>
+  )
+} 

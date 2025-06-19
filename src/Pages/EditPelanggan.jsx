@@ -17,7 +17,7 @@ const EditPelanggan = () => {
   console.log(namaPelanggan)
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <Form title={namaPelanggan} textButton={"tambah"}>
+      <Form title={namaPelanggan} textButton={"edit"}>
         <FormEditPelanggan />
       </Form>
     </div>

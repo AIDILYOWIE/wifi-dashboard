@@ -10,11 +10,16 @@ const Pelanggan = () => {
           <MySearch />
         </div>
         <div className="w-full flex justify-end">
-            <ButtonV2 to={'/pelanggan/add'}/>
+          <ButtonV2 icon='../../public/icon/add.svg' to={"/pelanggan/add"} type={'addPelanggan'} text={'Tambah Pelanggan'}/>
         </div>
       </div>
-      <div className="w-full">
-        <TablePelanggan/>
+      <div
+        style={{
+          boxShadow: "1px 1px 1px rgba(0, 0, 0, 25%)",
+        }}
+        className="w-full rounded-[20px]"
+      >
+        <TablePelanggan />
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export const MySearch = () => {
         />
       </div>
       <div className="w-full">
-          <input type="text" placeholder="Search..." className=" w-full h-full focus:outline-none focus:text-text text-border text-[16px] font-light"/>
+          <input type="text" placeholder="Search..." className=" w-full h-full focus:outline-none text-text text-[16px] font-light"/>
         </div>
     </div>
   );
