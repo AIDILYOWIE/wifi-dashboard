@@ -2,8 +2,9 @@ import { Box, Grid } from "@mui/material";
 import { color, fontSize } from "../../typhograpy";
 import Sidebar from "../Fragments/Sidebar";
 import { Outlet } from "react-router-dom";
+import React from "react";
 
-const MainLayout = ({ children }) => {
+const MainLayout = React.memo(({ children }) => {
   return (
     <Box
       sx={{
@@ -21,6 +22,6 @@ const MainLayout = ({ children }) => {
       <Box sx={{ background: `${color.backgroundColor}`, gridColumn: "3 / 13" }}><Outlet/></Box>
     </Box>
   );
-};
+})
 
 export default MainLayout;

@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { color } from "../../typhograpy";
 import { dataPelanggan } from "../../data";
 
-export const DateInput = React.memo( ({label = 'Tanggal'}) => {
+export const DateInput = React.memo(({ label = "Tanggal" }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -70,9 +70,12 @@ export const DateInput = React.memo( ({label = 'Tanggal'}) => {
     const days = [];
 
     // Empty cells for days before the first day of the month
-    for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="w-10 h-10"></div>);
-    }
+
+    useMemo(() => {
+      for (let i = 0; i < firstDay; i++) {
+        days.push(<div key={`empty-${i}`} className="w-10 h-10"></div>);
+      }
+    });
 
     // Days of the month
     for (let day = 1; day <= daysInMonth; day++) {
@@ -216,7 +219,7 @@ export const DateInput = React.memo( ({label = 'Tanggal'}) => {
       </div>
     </div>
   );
-})
+});
 
 export const DistrictInput = () => {
   const [selectedSubDistrict, setSelectedSubDistrict] = useState("");
@@ -291,15 +294,25 @@ export const DistrictInput = () => {
   );
 };
 
-export const NormalInput = React.memo(({label, placeholder, value, onChange}) => {
-  return (
-    <div className="w-full flex flex-col gap-[10px]">
-      <label htmlFor="" className="text-text text-[16px]">{label}</label>
-      <input onChange={onChange} type="text" value={value ?? ""} placeholder={placeholder} className="w-full focus:outline-none text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] rounded-[10px]
-      "/>
-    </div>
-  )
-})
+export const NormalInput = React.memo(
+  ({ label, placeholder, value, onChange }) => {
+    return (
+      <div className="w-full flex flex-col gap-[10px]">
+        <label htmlFor="" className="text-text text-[16px]">
+          {label}
+        </label>
+        <input
+          onChange={onChange}
+          type="text"
+          value={value ?? ""}
+          placeholder={placeholder}
+          className="w-full focus:outline-none text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] rounded-[10px]
+      "
+        />
+      </div>
+    );
+  }
+);
 
 // export const OrderForm = () => {
 //   // Form state

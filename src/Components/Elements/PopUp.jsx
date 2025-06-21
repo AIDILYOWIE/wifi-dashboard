@@ -1,8 +1,9 @@
 import { color } from "../../typhograpy";
 import { Box } from "@mui/material";
 import { ButtonActionDelete } from "./Button";
+import React from "react";
 
-export const PopupDelete = ({ show, onClose, onConfirm }) => {
+export const PopupDelete = React.memo(({ show, onClose, onConfirm }) => {
   if (!show) return null;
 
   const image = "../../../public/icon/delete.svg";
@@ -38,4 +39,4 @@ export const PopupDelete = ({ show, onClose, onConfirm }) => {
       </div>
     </div>
   );
-};
+})

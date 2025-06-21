@@ -2,8 +2,9 @@ import { Box } from "@mui/material";
 import { color } from "../../typhograpy";
 import { NormalButton } from "../Elements/Button";
 import { Outlet } from "react-router-dom";
+import React from "react";
 
-export const Form = ({ title, textButton, children }) => {
+export const Form = React.memo(({ title, textButton, children }) => {
   return (
     <div
       style={{
@@ -24,4 +25,4 @@ export const Form = ({ title, textButton, children }) => {
       </form>
     </div>
   );
-};
+})

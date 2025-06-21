@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDateRange } from "../../Contexts/DateRangePickerContext";
 
-const DateRangePicker = ({
-  onDateRangeChange,
+const DateRangePicker = React.memo(({
   placeholder = "Masukan Tanggal",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,14 +11,7 @@ const DateRangePicker = ({
   const [hoverDate, setHoverDate] = useState(null);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
-  const parseDateTransaksi = JSON.parse(localStorage.getItem("tanggalTrx"));
-
-  const startNewDate = parseDateTransaksi?.start
-    ? (parseDateTransaksi.start)
-    : null;
-  const endNewDate = parseDateTransaksi?.end
-    ?(parseDateTransaksi.end)
-    : null;
+  const { setDateRange } = useDateRange();
 
   const months = [
     "January",
@@ -54,10 +47,11 @@ const DateRangePicker = ({
   }, []);
 
   useEffect(() => {
-    if (onDateRangeChange && startDate && endDate) {
-      onDateRangeChange({ startDate, endDate });
-    }
-  }, [startDate, endDate, onDateRangeChange]);
+    setDateRange({
+      start: startDate,
+      end: endDate,
+    });
+  }, [startDate, endDate]);
 
   const formatDate = (date) => {
     if (!date) return "";
@@ -66,17 +60,7 @@ const DateRangePicker = ({
   };
 
   const getDisplayText = () => {
-    if (!startDate && !endDate) {
-      return `${startNewDate} - ${endNewDate}`;
-    }
     if (startDate && endDate) {
-      localStorage.setItem(
-        "tanggalTrx",
-        JSON.stringify({
-          start: `${formatDate(startDate)}`,
-          end: `${formatDate(endDate)}`,
-        })
-      );
       return `${formatDate(startDate)} - ${formatDate(endDate)}`;
     }
     if (startDate) {
@@ -302,23 +286,8 @@ const DateRangePicker = ({
         </div>
       )}
 
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
-        }
-      `}</style>
     </div>
   );
-};
+})
 
 export default DateRangePicker;
