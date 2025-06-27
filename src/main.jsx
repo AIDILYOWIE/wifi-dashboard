@@ -10,6 +10,7 @@ import Transaksi from "./Pages/Transaksi";
 import AddPelanggan from "./Pages/AddPelanggan";
 import EditPelanggan from "./Pages/EditPelanggan";
 import Invoice from "./Components/Fragments/invoice";
+import InvoicesPage from "./Pages/InvoicesPage";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/invoice',
-        element: <Invoice/>
+        element: <InvoicesPage/>
       },
       {
         path: '/pelanggan',
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: '/pelanggan/add',
         element: <AddPelanggan/>
+      },
+      {
+        path: '/pelanggan/:id',
+        element: <EditPelanggan/>
+      },
       {
         path: '/transaksi',
         element: <Transaksi/>

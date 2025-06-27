@@ -1,23 +1,24 @@
 import { TableBody, TableHead } from "../Elements/TableStructure";
 import { dataPelanggan } from "../../data";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ButtonAction, ButtonStatus } from "../Elements/Button";
 import { PopupDelete } from "../Elements/PopUp";
 import { data } from "react-router-dom";
 import { parse } from "date-fns";
+import { useDateRange } from "../../Contexts/DateRangePickerContext";
 
 export const TablePelanggan = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  const handleClick = (id) => {
+  const handleClick = useCallback((id) => {
     setSelectedId(id);
     setShowPopup(true);
-  };
+  }, [selectedId])
 
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = useCallback(() => {
     setShowPopup(false);
-  };
+  }, [[showPopup]])
 
   return (
     <>
@@ -91,102 +92,55 @@ export const TablePelanggan = () => {
 };
 
 
+
+// Simulasi data
+
 export const TableTransaksi = () => {
-  const [dateRange, setDateRange] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("tanggalTrx")) || null;
-    } catch {
-      return null;
-    }
-  });
+  const {dateRange} = useDateRange()
 
-  useEffect(() => {
-    function handleStorage(e) {
-      if (e.key === "tanggalTrx") {
-        setDateRange(e.newValue ? JSON.parse(e.newValue) : null);
+
+
+  // Filter data jika ada range tanggal
+
+    
+    const filteredData = useMemo(() => {
+      if (dateRange?.start && dateRange?.end) {
+        const start = new Date(dateRange.start);
+        const end = new Date(dateRange.end);
+        return dataPelanggan.filter((d) => {
+          const t = new Date(d.tanggal);
+          return t >= start && t <= end;
+        });
       }
-    }
-    window.addEventListener("storage", handleStorage);
-    return () => window.removeEventListener("storage", handleStorage);
-  }, []);
+      return dataPelanggan;
+    }, [dateRange]);
 
-  // --- 3) (OPSIONAL) patch setItem agar event juga muncul di tab sendiri --
-  useEffect(() => {
-    const originalSetItem = localStorage.setItem;
-    localStorage.setItem = function (key, value) {
-      originalSetItem.apply(this, arguments);
-      if (key === "tanggalTrx") {
-        window.dispatchEvent(
-          new StorageEvent("storage", { key, newValue: value })
-        );
-      }
-    };
-    return () => {
-      localStorage.setItem = originalSetItem; // bersihkan patch
-    };
-  }, []);
 
-  // --- 4) FILTER data setiap kali dateRange berubah ----------
-  const filteredData = useMemo(() => {
-    if (dateRange?.start && dateRange?.end) {
-      const start = new Date(dateRange.start);
-      const end = new Date(dateRange.end);
-      return dataPelanggan.filter((d) => {
-        const t = new Date(d.tanggal);
-        return t >= start && t <= end;
-      });
-    }
-    // default: tampilkan semua transaksi
-    return dataPelanggan;
-  }, [dateRange]);
+  // Daftar kolom untuk efisiensi render
+  const columns = [
+    { label: "Nama Pelanggan", accessor: "namaPelanggan" },
+    { label: "Kecamatan", accessor: "kecamatan" },
+    { label: "Desa", accessor: "desa" },
+    { label: "Dusun / Jalan", accessor: "dusunJalan" },
+    { label: "Status", accessor: "status", isStatus: true },
+  ];
 
-  // --- 5) RENDER --------------------------------------------
   return (
     <div
       className="w-full flex rounded-[20px] overflow-hidden"
       style={{ boxShadow: "2px 2px 5px rgba(0,0,0,0.2)" }}
     >
-      {/* Nama Pelanggan */}
-      <div className="w-full">
-        <TableHead value="Nama Pelanggan" />
-        {filteredData.map((item, i) => (
-          <TableBody key={i} value={item.namaPelanggan} />
-        ))}
-      </div>
-
-      {/* Kecamatan */}
-      <div className="w-full">
-        <TableHead value="Kecamatan" />
-        {filteredData.map((item, i) => (
-          <TableBody key={i} value={item.kecamatan} />
-        ))}
-      </div>
-
-      {/* Desa */}
-      <div className="w-full">
-        <TableHead value="Desa" />
-        {filteredData.map((item, i) => (
-          <TableBody key={i} value={item.desa} />
-        ))}
-      </div>
-
-      {/* Dusun / Jalan */}
-      <div className="w-full">
-        <TableHead value="Dusun / Jalan" />
-        {filteredData.map((item, i) => (
-          <TableBody key={i} value={item.dusunJalan} />
-        ))}
-      </div>
-
-      {/* Status */}
-      <div className="w-full">
-        <TableHead value="Status" />
-        {filteredData.map((item, i) => (
-          <TableBody key={i} type="status">
-            <ButtonStatus type={item.status} />
-          </TableBody>
-        ))}
-      </div>
+      {columns.map((col) => (
+        <div className="w-full" key={col.accessor}>
+          <TableHead value={col.label} />
+          {filteredData.map((item, i) => (
+            <TableBody key={i} type={col.isStatus ? "status" : undefined} value={item[col.accessor]}>
+              {col.isStatus && <ButtonStatus type={item.status} />}
+            </TableBody>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
+

@@ -121,12 +121,11 @@ export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
   );
 });
 
-export const NormalButton = React.memo(({ text }) => {
-  const [isHover, setIsHover] = useState(false);
+export const NormalButton = React.memo(({ text , width = 'w-full'}) => {
 
   return (
     <button
-      className={`w-full p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer
+      className={`${width} p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer
              bg-primary text-background
              hover:bg-transparent hover:text-text transition-colors duration-300 tracking-[.5px]`}
     >
@@ -194,11 +193,11 @@ export const ButtonAction = React.memo(({ type, to, onClick }) => {
   );
 });
 
-export const ButtonActionDelete = ({ type, onClick }) => {
+export const ButtonActionDelete = React.memo(({ type, onClick }) => {
   return (
     <button
       onClick={() => onClick()}
-      className={`w-full rounded-[50px] font-light ${
+      className={`w-full h-max rounded-[50px] font-light ${
         type == "Cancel"
           ? "border-1 border-border text-other bg-white"
           : "bg-delete-background text-delete"
@@ -207,9 +206,9 @@ export const ButtonActionDelete = ({ type, onClick }) => {
       {type}
     </button>
   );
-};
+})
 
-export const ButtonStatus = ({type}) => {
+export const ButtonStatus = React.memo(({type}) => {
   return (
         <button
       className={`w-full flex justify-center items-center h-full rounded-[50px] text-[16px] font-light ${
@@ -221,4 +220,4 @@ export const ButtonStatus = ({type}) => {
       {type}
     </button>
   )
-} 
+})

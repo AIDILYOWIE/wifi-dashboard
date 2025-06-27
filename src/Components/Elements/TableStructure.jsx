@@ -1,4 +1,6 @@
-export const TableHead = ({ width = "w-fill", value = "Header" }) => {
+import React from "react";
+
+export const TableHead = React.memo(({ width = "w-fill", value = "Header" }) => {
   return (
     <div
       className={`${width}  text-left bg-white px-[20px] py-[15px] border-b-1 border-border`}
@@ -6,9 +8,9 @@ export const TableHead = ({ width = "w-fill", value = "Header" }) => {
       <p className="text-text text-[16px] font-semibold">{value}</p>
     </div>
   );
-};
+})
 
-export const TableBody = ({
+export const TableBody = React.memo(({
   width = "w-full",
   value = "Body",
   type = "default",
@@ -25,4 +27,4 @@ export const TableBody = ({
       )}
     </div>
   );
-};
+})

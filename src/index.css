@@ -31,6 +31,27 @@
   -moz-osx-font-smoothing: grayscale; */
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.scroll-hide::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroll-hide::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-hide::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.scroll-hide::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 10px;
+}
 
 
 * {
