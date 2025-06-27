@@ -19,18 +19,18 @@ export const FormPembayaran = () => {
 
 export const FormAddPelanggan = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-[18px]">
+    <div className="w-full  flex flex-col justify-center items-center gap-[14px]">
       <div className="w-full grid grid-cols-1 h-max">
         <DateInput label={"Tanggal Masuk"} />
       </div>
-      <div className="w-full grid grid-cols-2 h-max gap-[20px]">
+      <div className="w-full grid min-[500px]:grid-cols-2 max-[500px]:grid-cols-1 h-max min-[500px]:gap-[20px] max-[500px]:gap-[18px]">
         <NormalInput
           label={"Nama Pelanggan"}
           placeholder={"Masukan Nama Pelanggan"}
         />
         <NormalInput label={"Kecamatan"} placeholder={"Masukan Kecamatan"} />
       </div>
-      <div className="w-full grid grid-cols-2 h-max gap-[20px]">
+      <div className="w-full grid min-[500px]:grid-cols-2 max-[500px]:grid-cols-1 h-max min-[500px]:gap-[20px] max-[500px]:gap-[18px]">
         <NormalInput label={"Desa"} placeholder={"Masukan Desa"} />
         <NormalInput
           label={"Dusun / Jalan"}

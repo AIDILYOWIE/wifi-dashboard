@@ -3,8 +3,8 @@ import { NormalButton } from "../Components/Elements/Button";
 
 const InvoicesPage = () => {
   return (
-    <div className="flex w-full justify-center items-center p-[20px]">
-      <div className="w-max h-full flex justify-center items-center flex-col gap-[18px]">
+    <div className="flex w-full h-full justify-center items-center p-[20px]">
+      <div className="w-max h-full flex justify-center items-center flex-col min-[500px]:gap-[18px] max-[500px]:gap-[28px]">
         <div className="overflow-x-auto w-[362px] scroll-hide"
 
         >

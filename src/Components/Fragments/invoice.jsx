@@ -238,7 +238,7 @@ const Invoice = React.memo(
               class="w-full px-5 py-1.5 flex justify-start items-center bg-[#008bba]"
             >
               <p id="b-h-text" class="text-[10px] font-semibold text-[#15256e]">
-                RINCIAN PEMBAYARAN
+                POTONGAN PEMBAYARAN
               </p>
             </div>
 

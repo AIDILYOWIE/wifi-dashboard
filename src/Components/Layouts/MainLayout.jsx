@@ -3,25 +3,90 @@ import { color, fontSize } from "../../typhograpy";
 import Sidebar from "../Fragments/Sidebar";
 import { Outlet } from "react-router-dom";
 import React from "react";
+import { BottomBar } from "../Elements/BottomBar";
 
 const MainLayout = React.memo(({ children }) => {
   return (
     <Box
       sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(12, 1fr)",
+        display: {
+          sm: "grid",
+          xs: "flex",
+        },
+        gridTemplateColumns: {
+          xs: "none",
+          sm: "repeat(12, 1fr)",
+        },
+
+        flexDirection: {
+          xs: "column",
+        },
+
+        position: {
+          xs: "relative",
+        },
+
         width: "100vw",
         height: "100vh",
+        backgroundColor: `${color.backgroundColor}`,
       }}
     >
       <Box
-        sx={{ display: 'flex', background: 'white', gridColumn: "1 / 3", borderTopRightRadius: '20px', borderBottomRightRadius: '20px', boxShadow: '' }}
+        sx={{
+          display: "grid",
+          background: "white",
+          gridColumn: {
+            lg: " 1 / 3",
+            md: "1 / 3",
+            sm: "1 / 4",
+          },
+          borderTopRightRadius: "20px",
+          borderBottomRightRadius: "20px",
+        }}
       >
-        <Sidebar />
+        <Box
+          sx={{
+            display: {
+              xs: "none",
+              sm: "flex",
+            },
+          }}
+        >
+          <Sidebar />
+        </Box>
+
+        <Box
+          sx={{
+            display: {
+              xs: "flex",
+              sm: "none",
+            },
+          }}
+        >
+          <BottomBar />
+        </Box>
       </Box>
-      <Box sx={{ background: `${color.backgroundColor}`, gridColumn: "3 / 13" }}><Outlet/></Box>
+      <Box
+        sx={{
+          display: {
+            xs: "flex",
+          },
+
+          gridColumn: {
+            lg: "3 / 13",
+            md: "3 / 13",
+            sm: "4 / 13",
+          },
+
+          width: "100%",
+
+          height: "100%",
+        }}
+      >
+        <Outlet />
+      </Box>
     </Box>
   );
-})
+});
 
 export default MainLayout;

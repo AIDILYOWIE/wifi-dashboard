@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useMemo } from "react";
 import { color } from "../../typhograpy";
 import { dataPelanggan } from "../../data";
 
-export const DateInput = React.memo(({ label = "Tanggal" }) => {
+export const DateInput = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -38,7 +38,7 @@ export const DateInput = React.memo(({ label = "Tanggal" }) => {
   };
 
   const handleInputClick = () => {
-    setIsCalendarOpen(!isCalendarOpen);
+    setIsCalendarOpen(true);
   };
 
   const handleDateSelect = (date) => {
@@ -71,11 +71,9 @@ export const DateInput = React.memo(({ label = "Tanggal" }) => {
 
     // Empty cells for days before the first day of the month
 
-    useMemo(() => {
       for (let i = 0; i < firstDay; i++) {
         days.push(<div key={`empty-${i}`} className="w-10 h-10"></div>);
       }
-    });
 
     // Days of the month
     for (let day = 1; day <= daysInMonth; day++) {
@@ -137,7 +135,7 @@ export const DateInput = React.memo(({ label = "Tanggal" }) => {
           <label
             className={`text-text transition-all duration-200 pointer-events-none top-3 text-[16px] font-normal`}
           >
-            {label}
+            Tanggal
           </label>
           <input
             ref={inputRef}
@@ -219,7 +217,7 @@ export const DateInput = React.memo(({ label = "Tanggal" }) => {
       </div>
     </div>
   );
-});
+}
 
 export const DistrictInput = () => {
   const [selectedSubDistrict, setSelectedSubDistrict] = useState("");

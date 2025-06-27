@@ -174,7 +174,7 @@ const DateRangePicker = React.memo(({
           transition-all duration-200 font-semibold
         "
       >
-        <span className={"text-background text-background"}>
+        <span className={"text-background text-background max-[850px]:text-[14px]"}>
           {getDisplayText()}
         </span>
         <svg
