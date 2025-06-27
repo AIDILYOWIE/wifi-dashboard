@@ -10,13 +10,17 @@ export const PopupDelete = React.memo(({ show, onClose, onConfirm }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center px-4">
-      <div className="bg-white rounded-[20px] shadow-lg w-[450px] p-[20px] flex flex-col items-center gap-[18px]">
-        <div className="w-full flex flex-col justify-center items-center gap-[8px]">
+      <div className="bg-white rounded-[20px] shadow-lg min-[500px]:w-[450px] max-[500px]:w-[300px] p-[20px] flex flex-col items-center gap-[18px]">
+        <div className="w-full flex flex-col justify-center items-center min-[500px]:gap-[8px] max-[500px]:gap-[4px]">
           <div className="w-max rounded-[50%] p-[10px] bg-delete">
             <Box
               sx={{
-                width: 50,
-                height: 50,
+                width: {
+                  xs: 40
+                },
+                height: {
+                  xs: 40
+                },
                 backgroundColor: color.backgroundColor,
                 WebkitMaskImage: `url(${image})`,
                 WebkitMaskRepeat: "no-repeat",
@@ -27,8 +31,8 @@ export const PopupDelete = React.memo(({ show, onClose, onConfirm }) => {
               }}
             />
           </div>
-          <p className="text-text text-[24px] font-semibold">Hapus Pelanggan</p>
-          <p className="text-text text-[14px] font-light">
+          <p className="text-text min-[500px]:text-[24px] max-[500px]:text-[18px] font-semibold">Hapus Pelanggan</p>
+          <p className="text-text text-center min-[500px]:text-[14px] max-[500px]:text-[12px] font-light">
             Apakah anda serius untuk menghapus pelanggan ini
           </p>
         </div>

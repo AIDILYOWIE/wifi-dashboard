@@ -7,8 +7,8 @@ import { DateRangeProvider } from "../Contexts/DateRangePickerContext";
 const Transaksi = () => {
   return (
     <DateRangeProvider>
-      <div className="w-full h-full flex flex-col justify-start items-center px-[40px] py-[20px] gap-[28px] overflow-hidden">
-        <div className="w-full grid grid-cols-2">
+      <div className="w-full h-full flex flex-col justify-start items-center min-[900px]:px-[40px] max-[900px]:px-[20px] py-[20px] gap-[28px] overflow-hidden">
+        <div className="w-full grid min-[900px]:grid-cols-2 max-[900px]:grid-cols-1 max-[900px]:gap-[8px]">
           <div className="w-full">
             <MySearch />
           </div>
@@ -18,9 +18,9 @@ const Transaksi = () => {
         </div>
         <div
           style={{
-            boxShadow: "1px 1px 1px rgba(0, 0, 0, 25%)",
+            boxShadow: "1px 1px 2px rgba(0, 0, 0, 25%)",
           }}
-          className="w-full rounded-[20px]"
+          className="w-full bg-white rounded-[20px] overflow-auto"
         >
           <TableTransaksi />
         </div>

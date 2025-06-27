@@ -23,10 +23,7 @@ export const TablePelanggan = () => {
   return (
     <>
       <div
-        className="w-full flex rounded-[20px] overflow-hidden "
-        style={{
-          boxShadow: "2px 2px 5px rgba(0, 0, 0, 20%)",
-        }}
+        className="max-[1100px]:w-[900px]  max-[900px]:w-[900px]  flex  "
       >
         {/* Nama Pelanggan */}
         <div className="w-full">
@@ -127,7 +124,7 @@ export const TableTransaksi = () => {
 
   return (
     <div
-      className="w-full flex rounded-[20px] overflow-hidden"
+      className="max-[1200px]:w-[1100px]  max-[900px]:w-[1000px]  flex overflow-hidden"
       style={{ boxShadow: "2px 2px 5px rgba(0,0,0,0.2)" }}
     >
       {columns.map((col) => (

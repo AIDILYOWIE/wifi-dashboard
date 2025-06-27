@@ -13,6 +13,8 @@
   --color-delete-background: rgba(255, 0, 4, 20%);
   --color-success: #00FF19;
   --color-success-background: rgba(0, 255, 15, 18%);
+
+  --breakpoint-tablet: 834px;
 }
 
 

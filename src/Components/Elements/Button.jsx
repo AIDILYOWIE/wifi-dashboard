@@ -81,14 +81,88 @@ export const ButtonnSidebar = React.memo(
   }
 );
 
+export const ButtomBottomBar = ({
+  icon,
+  text,
+  href = "/",
+  isActive = false,
+}) => {
+  const renderIcon = useMemo(() => {
+    return icon;
+  }, [icon]);
+
+  return (
+    <Link to={href}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+          alignItems: "center",
+          cursor: "pointer",
+
+
+          // "&:hover": {
+          //   backgroundColor: color.primaryColor,
+
+          //   ".sidebar-icon": {
+          //     backgroundColor: color.backgroundColor,
+          //     transition: "background-color .3s ease",
+          //   },
+
+          //   ".sidebar-text": {
+          //     color: color.backgroundColor,
+          //     transition: "background-color .3s ease",
+          //   },
+          // },
+        }}
+      >
+        <Box sx={{ width: "max-content" }}>
+          <Box
+            className="sidebar-icon"
+            sx={{
+              width: 20,
+              height: 20,
+              backgroundColor: isActive
+                ? color.primaryColor
+                : color.textColor,
+              WebkitMaskImage: `url(${renderIcon})`,
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskSize: "cover",
+              maskImage: `url(${renderIcon})`,
+              maskRepeat: "no-repeat",
+              maskSize: "cover",
+            }}
+          />
+        </Box>
+        <Box sx={{ fontSize: "10px", fontWeight: "regular" }}>
+          <Typography
+            className="sidebar-text"
+            variant="h5"
+            fontSize={`10px`}
+            fontWeight="regular"
+            color={isActive ? color.primaryColor : color.textColor}
+          >
+            {text}
+          </Typography>
+        </Box>
+      </Box>
+    </Link>
+  );
+};
+
 export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
   return type == "addPelanggan" ? (
     <Link to={to}>
       <button className="w-max flex items-center px-[20px] py-[10px] rounded-[10px] bg-primary gap-[10px] cursor-pointer">
         <Box
           sx={{
-            width: 21,
-            height: 21,
+            width: {
+              xs: 20,
+            },
+            height: {
+              xs: 20
+            },
             backgroundColor: color.backgroundColor,
             WebkitMaskImage: `url(${icon})`,
             WebkitMaskRepeat: "no-repeat",
@@ -98,7 +172,7 @@ export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
             maskSize: "cover",
           }}
         />
-        <p className="text-[16px] text-background font-semibold">{text}</p>
+        <p className="max-[500px]:text-[14px] text-background font-semibold">{text}</p>
       </button>
     </Link>
   ) : (
@@ -116,16 +190,15 @@ export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
           maskSize: "cover",
         }}
       />
-      <p className="text-[14px] text-background font-semibold">{text}</p>
+      <p className="max-[500px]:text-[14px] min-[500px]:text-16px text-background font-semibold">{text}</p>
     </button>
   );
 });
 
-export const NormalButton = React.memo(({ text , width = 'w-full'}) => {
-
+export const NormalButton = React.memo(({ text, width = "w-full" }) => {
   return (
     <button
-      className={`${width} p-[10px] text-[16px] font-semibold rounded-[10px] cursor-pointer
+      className={`${width} p-[10px] text-[14px] font-semibold rounded-[10px] cursor-pointer
              bg-primary text-background
              hover:bg-transparent hover:text-text transition-colors duration-300 tracking-[.5px]`}
     >
@@ -206,11 +279,11 @@ export const ButtonActionDelete = React.memo(({ type, onClick }) => {
       {type}
     </button>
   );
-})
+});
 
-export const ButtonStatus = React.memo(({type}) => {
+export const ButtonStatus = React.memo(({ type }) => {
   return (
-        <button
+    <button
       className={`w-full flex justify-center items-center h-full rounded-[50px] text-[16px] font-light ${
         type == "LUNAS"
           ? "text-success bg-success-background"
@@ -219,5 +292,5 @@ export const ButtonStatus = React.memo(({type}) => {
     >
       {type}
     </button>
-  )
-})
+  );
+});
