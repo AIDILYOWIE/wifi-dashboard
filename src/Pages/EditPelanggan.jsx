@@ -11,13 +11,13 @@ const EditPelanggan = () => {
   useEffect(() => {
     const findPelanggan = dataPelanggan.find((data) => data.index === Number(id))
 
-    if(findPelanggan) setNamaPelanggan(findPelanggan.namaPelanggan)
+    if(findPelanggan) setNamaPelanggan(findPelanggan.namaPelanggan.toUpperCase())
   }, [dataPelanggan, id])
 
-  console.log(namaPelanggan)
+
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <Form title={namaPelanggan} textButton={"edit"}>
+      <Form title={namaPelanggan} textButton={"Edit"}>
         <FormEditPelanggan />
       </Form>
     </div>
