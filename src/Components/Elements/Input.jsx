@@ -293,10 +293,10 @@ export const DistrictInput = () => {
 };
 
 export const NormalInput = React.memo(
-  ({ label, placeholder, value, onChange }) => {
+  ({ label, placeholder, value, onChange, labelSize = '16px', placeholderSize = 'text-[10px]', labelStyle }) => {
     return (
-      <div className="w-full flex flex-col gap-[10px]">
-        <label htmlFor="" className="text-text text-[16px]">
+      <div className="w-full flex flex-col gap-[4px]">
+        <label htmlFor="" className={`${labelStyle} text-[${labelSize}] text-text`}>
           {label}
         </label>
         <input
@@ -304,8 +304,7 @@ export const NormalInput = React.memo(
           type="text"
           value={value ?? ""}
           placeholder={placeholder}
-          className="w-full focus:outline-none text-text border-2 border-text px-[20px] py-[10px] font-reguler text-[10px] rounded-[10px]
-      "
+          className={`w-full focus:outline-none text-text border-[1.5px] border-text px-[20px] py-[10px] font-reguler ${placeholderSize} rounded-[10px]`}
         />
       </div>
     );

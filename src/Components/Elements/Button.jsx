@@ -195,10 +195,10 @@ export const ButtonV2 = React.memo(({ icon, to = "/", type, text }) => {
   );
 });
 
-export const NormalButton = React.memo(({ text, width = "w-full" }) => {
+export const NormalButton = React.memo(({ text, width = "w-full", textSize = '14px' }) => {
   return (
     <button
-      className={`${width} p-[10px] text-[14px] font-semibold rounded-[10px] cursor-pointer
+      className={`${width} p-[10px] text-[${textSize}] font-semibold rounded-[10px] cursor-pointer
              bg-primary text-background
              hover:bg-transparent hover:text-text transition-colors duration-300 tracking-[.5px]`}
     >

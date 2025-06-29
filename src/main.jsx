@@ -11,6 +11,7 @@ import AddPelanggan from "./Pages/AddPelanggan";
 import EditPelanggan from "./Pages/EditPelanggan";
 import Invoice from "./Components/Fragments/invoice";
 import InvoicesPage from "./Pages/InvoicesPage";
+import Login from "./Pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,13 @@ const router = createBrowserRouter([
       {
         path: '/transaksi',
         element: <Transaksi/>
-      }
+      },
     ],
   },
+  {
+    path: '/login',
+    element: <Login />
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

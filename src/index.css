@@ -5,6 +5,7 @@
   --color-other: #979797;
   --color-border: rgba(202, 202, 202, 50%);
   --color-text: #333333;
+  --color-text-second: #ffffff;
   --color-background: #F8F8F8;
   --color-other-text: #979797;
   --color-edit: #FFDC00;
@@ -13,8 +14,9 @@
   --color-delete-background: rgba(255, 0, 4, 20%);
   --color-success: #00FF19;
   --color-success-background: rgba(0, 255, 15, 18%);
-
   --breakpoint-tablet: 834px;
+  --shadow-default: 2px 2px 5px rgba(0, 0, 0, 25%);
+  --border-default: 1px solid #DDDDDD;
 }
 
 
