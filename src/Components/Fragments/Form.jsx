@@ -6,8 +6,8 @@ import { useCallback } from "react";
 
 export const FormPembayaran = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-[24px]">
-      <div className="w-full grid grid-cols-1 h-max gap-[20px]">
+    <div className="w-full flex flex-col justify-center items-center gap-[28px] position-relative">
+      <div className="w-full grid grid-cols-1 h-max gap-[20px] ">
         <DateInput />
       </div>
       <div className="w-full grid grid-cols-1 h-max gap-[20px]">
@@ -68,7 +68,7 @@ export const FormEditPelanggan = () => {
     <div className="w-full flex flex-col justify-center items-center gap-[18px]">
       {pelanggan && (
         <>
-          <div className="w-full grid grid-cols-2 h-max gap-[20px]">
+          <div className="w-full grid grid-cols-2 max-[576px]:grid-cols-1 h-max gap-[20px]">
             <NormalInput
               label="Nama Pelanggan"
               placeholder="Masukan Nama Pelanggan"
@@ -82,7 +82,7 @@ export const FormEditPelanggan = () => {
               onChange={handleChange("kecamatan")}
             />
           </div>
-          <div className="w-full grid grid-cols-2 h-max gap-[20px]">
+          <div className="w-full grid grid-cols-2 max-[576px]:grid-cols-1 h-max gap-[20px]">
             <NormalInput
               label="Desa"
               placeholder="Masukan Desa"
