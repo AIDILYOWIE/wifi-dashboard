@@ -198,9 +198,9 @@ const DateRangePicker = React.memo(({
         <div
           ref={dropdownRef}
           className="
-            absolute top-full -left-17 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl
-            z-50 p-6 min-w-80 transf
-            orm transition-all duration-200 animate-fadeIn
+            absolute top-full -left-17 max-[576px]:-left-20 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl
+            z-50 p-6 min-w-80 max-[576px]:min-w-65
+             transition-all duration-200 animate-fadeIn
           "
         >
           {/* Calendar Header */}
