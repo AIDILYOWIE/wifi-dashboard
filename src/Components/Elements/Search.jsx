@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { color } from "../../typhograpy";
+import iconSearch from "../../../public/icon/search.svg"
 
 export const MySearch = () => {
   const image = "../../../public/icon/search.svg";
