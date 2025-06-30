@@ -4,21 +4,24 @@ import { Box, Button, Typography } from "@mui/material";
 import { color, fontSize } from "../../typhograpy";
 import { ButtonnSidebar } from "../Elements/Button";
 import { useLocation } from "react-router-dom";
+import iconPembayaran from "../../../public/icon/pembayaran.svg";
+import iconPelanggan from "../../../public/icon/pelanggan.svg";
+import iconTransaksi from "../../../public/icon/transaksi.svg";
 
 const Sidebar = () => {
   const menuSidebar = [
     {
-      icon: "../../../public/icon/pembayaran.svg",
+      icon: iconPembayaran,
       text: "Pembayaran",
       href: "/",
     },
     {
-      icon: "../../../public/icon/pelanggan.svg",
+      icon: iconPelanggan,
       text: "Pelanggan",
       href: "/pelanggan",
     },
     {
-      icon: "../../../public/icon/transaksi.svg",
+      icon: iconTransaksi,
       text: "Transaksi",
       href: "/transaksi",
     },

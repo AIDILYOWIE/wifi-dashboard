@@ -4,6 +4,8 @@ import { color, fontSize } from "../../typhograpy";
 import { data, Link, useParams } from "react-router-dom";
 import { dataPelanggan } from "../../data";
 import React from "react";
+import iconEdit from "../../../public/icon/edit.svg";
+import iconDelete from "../../../public/icon/delete.svg";
 
 export const ButtonnSidebar = React.memo(
   ({
@@ -208,18 +210,16 @@ export const NormalButton = React.memo(({ text, width = "w-full", textSize = '14
 });
 
 export const ButtonAction = React.memo(({ type, to, onClick }) => {
-  const imageEdit = "../../../public/icon/edit.svg";
-  const imageDelete = "../../../public/icon/delete.svg";
   let image;
   let colorText;
   let background;
 
   if (type == "edit") {
-    image = imageEdit;
+    image = iconEdit;
     colorText = color.editColor;
     background = "bg-edit-background";
   } else {
-    image = imageDelete;
+    image = iconDelete  ;
     colorText = color.deleteColor;
     background = "bg-delete-background";
   }

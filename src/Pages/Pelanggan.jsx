@@ -1,6 +1,7 @@
 import { ButtonV2 } from "../Components/Elements/Button";
 import { MySearch } from "../Components/Elements/Search";
 import { TablePelanggan } from "../Components/Fragments/Table";
+import iconTambah from "../../public/icon/add.svg"
 
 const Pelanggan = () => {
   return (
@@ -10,7 +11,7 @@ const Pelanggan = () => {
           <MySearch />
         </div>
         <div className="w-full flex justify-end">
-          <ButtonV2 icon='../../public/icon/add.svg' to={"/pelanggan/add"} type={'addPelanggan'} text={'Tambah Pelanggan'}/>
+          <ButtonV2 icon={iconTambah} to={"/pelanggan/add"} type={'addPelanggan'} text={'Tambah Pelanggan'}/>
         </div>
       </div>
       <div
